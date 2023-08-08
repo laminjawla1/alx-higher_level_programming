@@ -23,6 +23,8 @@ int check_cycle(listint_t *list)
 {
 	listint_t *tmp1, *tmp2;
 
+	if (!list)
+		return (0);
 	tmp1 = tmp2 = list;
 	while (gateway(tmp1, tmp2, tmp2->next))
 	{
