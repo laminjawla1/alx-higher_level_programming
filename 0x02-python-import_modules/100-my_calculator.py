@@ -14,18 +14,11 @@ def main():
 def calculate(n1, op, n2):
     n1 = int(n1)
     n2 = int(n2)
-    match (op):
-        case "+":
-            print("{} + {} = {}".format(n1, n2, add(n1, n2)))
-        case "-":
-            print("{} - {} = {}".format(n1, n2, sub(n1, n2)))
-        case "*":
-            print("{} * {} = {}".format(n1, n2, mul(n1, n2)))
-        case "/":
-            print("{} / {} = {}".format(n1, n2, div(n1, n2)))
-        case _:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+    operations = {"+": add, "-": sub, "*": mul, "/": div}
+    if not op in operations:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+    print("{} {} {} = {}".format(n1, op, n2, operations[op](n1, n2)))
 
 
 if __name__ == "__main__":
