@@ -15,10 +15,11 @@ def calculate(n1, op, n2):
     n1 = int(n1)
     n2 = int(n2)
     operations = {"+": add, "-": sub, "*": mul, "/": div}
-    if not op in operations:
+    if op in operations:
+        print("{} {} {} = {}".format(n1, op, n2, operations[op](n1, n2)))
+    else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
-    print("{} {} {} = {}".format(n1, op, n2, operations[op](n1, n2)))
 
 
 if __name__ == "__main__":
