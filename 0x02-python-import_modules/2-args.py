@@ -7,8 +7,8 @@ def main():
     _len = len(argv) - 1
 
     if _len == 0:
-        exit("0 arguments.")
-    if _len == 1:
+        print("0 arguments.")
+    elif _len == 1:
         print("{} argument:".format(_len))
     else:
         print("{} arguments:".format(_len))
