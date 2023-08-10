@@ -25,6 +25,7 @@ def calculate(n1, op, n2):
             print("{} / {} = {}".format(n1, n2, div(n1, n2)))
         case _:
             print("Unknown operator. Available operators: +, -, * and /")
+            exit(1)
 
 
 if __name__ == "__main__":
