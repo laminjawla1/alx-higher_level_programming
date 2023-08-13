@@ -9,7 +9,16 @@
 */
 listint_t *reverse_list(listint_t *h)
 {
-	return (h);
+	listint_t *prev = NULL, *next, *head;
+
+	for (head = h; head; head = next)
+	{
+		next = head->next;
+		head->next = prev;
+		prev = head;
+	}
+	head = prev;
+	return (head);
 }
 /**
 * is_palindrome - Checks if a list palindrome
