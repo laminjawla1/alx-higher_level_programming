@@ -54,10 +54,6 @@ int is_palindrome(listint_t **head)
 		return (1);
 	r = reverse_list(*head);
 	if (is_pal(*head, r))
-	{
-		*head = reverse_list(*head);
 		return (1);
-	}
-	*head = reverse_list(*head);
 	return (0);
 }
