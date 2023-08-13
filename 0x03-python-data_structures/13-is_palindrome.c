@@ -8,10 +8,8 @@
 *
 *Return: 1 if is palindrome else 0
 */
-int is_pal(listint_t *h, listint_t *r)
+int is_pal(listint_t *head, listint_t *rev)
 {
-	listint_t *head = h, *rev = r;
-
 	while (head->next && rev->next)
 	{
 		if (head->n != rev->n)
