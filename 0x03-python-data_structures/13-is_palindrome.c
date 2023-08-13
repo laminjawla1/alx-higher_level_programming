@@ -10,7 +10,7 @@
 */
 int is_pal(listint_t *head, listint_t *rev)
 {
-	while (head->next || rev->next)
+	while (head->next && rev->next)
 	{
 		if (head->n != rev->n)
 			return (0);
