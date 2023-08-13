@@ -1,6 +1,27 @@
 #include "lists.h"
 
 /**
+*is_pal - Checks if a list is palindrome
+*
+*@h: Head of the original list
+*@r: Head of the reversed list
+*
+*Return: 1 if is palindrome else 0
+*/
+int is_pal(listint_t *h, listint_t *r)
+{
+	listint_t *head = h, *rev = r;
+
+	while (head->next && rev->next)
+	{
+		if (head->n != rev->n)
+			return (0);
+		head = head->next;
+		rev = rev->next;
+	}
+	return (1);
+}
+/**
 * reverse_list - Reverses a linked list
 *
 *@h: Head of the list to be reversed
@@ -29,12 +50,9 @@ listint_t *reverse_list(listint_t *h)
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed_list = NULL;
-
 	if ((*head)->next == NULL)
 		return (1);
-	reversed_list = reverse_list(*head);
-	if (reversed_list->n == (*head)->n)
+	if (is_pal(*head, reverse_list(*head)))
 		return (1);
 	return (0);
 }
