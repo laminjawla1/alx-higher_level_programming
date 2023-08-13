@@ -3,8 +3,8 @@
 /**
 *is_pal - Checks if a list is palindrome
 *
-*@h: Head of the original list
-*@r: Head of the reversed list
+*@head: Head of the original list
+*@rev: Head of the reversed list
 *
 *Return: 1 if is palindrome else 0
 */
@@ -22,15 +22,15 @@ int is_pal(listint_t *head, listint_t *rev)
 /**
 * reverse_list - Reverses a linked list
 *
-*@h: Head of the list to be reversed
+*@head: Head of the list to be reversed
 *
 *Return: Reversed list
 */
-listint_t *reverse_list(listint_t *h)
+listint_t *reverse_list(listint_t *head)
 {
-	listint_t *prev = NULL, *next, *head;
+	listint_t *prev = NULL, *next;
 
-	for (head = h; head; head = next)
+	for (; head; head = next)
 	{
 		next = head->next;
 		head->next = prev;
