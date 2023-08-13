@@ -48,9 +48,16 @@ listint_t *reverse_list(listint_t *head)
 */
 int is_palindrome(listint_t **head)
 {
+	listint_t *r;
+
 	if (!*head || (*head)->next == NULL)
 		return (1);
-	if (is_pal(*head, reverse_list(*head)))
+	r = reverse_list(*head);
+	if (is_pal(*head, r))
+	{
+		*head = reverse_list(*head);
 		return (1);
+	}
+	*head = reverse_list(*head);
 	return (0);
 }
