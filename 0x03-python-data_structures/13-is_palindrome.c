@@ -67,22 +67,18 @@ listint_t *reverse_list(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	int i, length;
-	listint_t *r, *mid, *tmp = *head;
+	listint_t *r, *mid = *head;
 
 	if (!*head || (*head)->next == NULL)
 		return (1);
 	/*Middle of the list*/
 	length = len(*head);
 	for (i = 0; i < length / 2 - 1; i++)
-		tmp = tmp->next;
-	if ((length % 2 == 0) && (tmp->n != tmp->next->n))
+		mid = mid->next;
+	if ((length % 2 == 0) && (mid->n != mid->next->n))
 		return (0);
-	r = reverse_list(&(tmp->next->next));
-	mid = r;
+	r = reverse_list(&(mid->next->next));
 	if (is_pal(*head, r))
-	{
-		*head = reverse_list(&mid);
 		return (1);
-	}
 	return (0);
 }
