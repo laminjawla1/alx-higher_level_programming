@@ -17,7 +17,9 @@ int is_pal(listint_t *head, listint_t *rev)
 		head = head->next;
 		rev = rev->next;
 	}
-	return (1);
+	if (!head && !rev)
+		return (1);
+	return (0);
 }
 /**
 * reverse_list - Reverses a linked list
