@@ -44,18 +44,18 @@ int is_pal(listint_t *head, listint_t *rev)
 *
 *Return: Reversed list
 */
-listint_t *reverse_list(listint_t **head)
+listint_t *reverse_list(listint_t *head)
 {
 	listint_t *prev = NULL, *next;
 
-	for (; *head; *head = next)
+	for (; head; head = next)
 	{
-		next = (*head)->next;
-		(*head)->next = prev;
-		prev = *head;
+		next = head->next;
+		head->next = prev;
+		prev = head;
 	}
-	*head = prev;
-	return (*head);
+	head = prev;
+	return (head);
 }
 /**
 * is_palindrome - Checks if a list palindrome
@@ -77,7 +77,7 @@ int is_palindrome(listint_t **head)
 		mid = mid->next;
 	if ((length % 2 == 0) && (mid->n != mid->next->n))
 		return (0);
-	r = reverse_list(&(mid->next->next));
+	r = reverse_list(mid->next->next);
 	if (is_pal(*head, r))
 		return (1);
 	return (0);
