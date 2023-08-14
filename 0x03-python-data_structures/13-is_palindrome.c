@@ -1,6 +1,24 @@
 #include "lists.h"
 
 /**
+* len - Gets the length of the list
+*
+*@head: Head of the list
+*
+*Return: len(list)
+*/
+int len(listint_t *head)
+{
+	int length = 0;
+
+	while (head)
+	{
+		length++;
+		head = head->next;
+	}
+	return (length);
+}
+/**
 *is_pal - Checks if a list is palindrome
 *
 *@head: Head of the original list
@@ -50,10 +68,17 @@ listint_t *reverse_list(listint_t *head)
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *r;
+	int i, length;
+	listint_t *r, *mid = *head;
 
 	if (!*head || (*head)->next == NULL)
 		return (1);
+	/*Middle of the list*/
+	length = len(*head);
+	for (i = 0; i < length / 2 - 1; i++)
+		mid = mid->next;
+	if ((length % 2 == 0) && (mid->n != mid->next->n))
+		return (0);
 	r = reverse_list(*head);
 	if (is_pal(*head, r))
 		return (1);
