@@ -77,12 +77,11 @@ int is_palindrome(listint_t **head)
 		tmp = tmp->next;
 	if ((length % 2 == 0) && (tmp->n != tmp->next->n))
 		return (0);
-	tmp = tmp->next->next;
-	r = reverse_list(&tmp);
+	r = reverse_list(&(tmp->next->next));
 	mid = r;
-	if (is_pal(tmp, r))
+	if (is_pal(*head, r))
 	{
-		reverse_list(&mid);
+		*head = reverse_list(&mid);
 		return (1);
 	}
 	return (0);
