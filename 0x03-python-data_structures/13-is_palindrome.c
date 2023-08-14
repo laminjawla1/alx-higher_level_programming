@@ -28,14 +28,16 @@ int len(listint_t *head)
 */
 int is_pal(listint_t *head, listint_t *rev)
 {
-	while (rev->next)
+	while (head && rev)
 	{
 		if (head->n != rev->n)
 			return (0);
 		head = head->next;
 		rev = rev->next;
 	}
-	return (1);
+	if (!head && !rev)
+		return (1);
+	return (0);
 }
 /**
 * reverse_list - Reverses a linked list
