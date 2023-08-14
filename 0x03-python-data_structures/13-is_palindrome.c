@@ -30,13 +30,13 @@ int is_pal(listint_t *head, listint_t *rev)
 */
 listint_t *reverse_list(listint_t *head)
 {
-	listint_t *prev = NULL, *next;
+	listint_t *prev = NULL, *current = head, *next;
 
-	for (; head; head = next)
+	for (; current; current = next)
 	{
-		next = head->next;
-		head->next = prev;
-		prev = head;
+		next = current->next;
+		current->next = prev;
+		prev = current;
 	}
 	head = prev;
 	return (head);
