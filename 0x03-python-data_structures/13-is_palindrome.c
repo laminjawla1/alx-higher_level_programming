@@ -28,7 +28,7 @@ int len(listint_t *head)
 */
 int is_pal(listint_t *head, listint_t *rev)
 {
-	while (head && rev)
+	while (rev)
 	{
 		if (head->n != rev->n)
 			return (0);
