@@ -28,16 +28,14 @@ int len(listint_t *head)
 */
 int is_pal(listint_t *head, listint_t *rev)
 {
-	while (head->next && rev->next)
+	while (rev->next)
 	{
 		if (head->n != rev->n)
 			return (0);
 		head = head->next;
 		rev = rev->next;
 	}
-	if (!head && !rev)
-		return (1);
-	return (0);
+	return (1);
 }
 /**
 * reverse_list - Reverses a linked list
@@ -46,18 +44,18 @@ int is_pal(listint_t *head, listint_t *rev)
 *
 *Return: Reversed list
 */
-listint_t *reverse_list(listint_t *head)
+listint_t *reverse_list(listint_t **head)
 {
 	listint_t *prev = NULL, *next;
 
-	for (; head; head = next)
+	for (; *head; *head = next)
 	{
-		next = head->next;
-		head->next = prev;
-		prev = head;
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
 	}
-	head = prev;
-	return (head);
+	*head = prev;
+	return (*head);
 }
 /**
 * is_palindrome - Checks if a list palindrome
@@ -69,19 +67,23 @@ listint_t *reverse_list(listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	int i, length;
-	listint_t *r, *mid = *head;
+	listint_t *r, *mid, *tmp = *head;
 
 	if (!*head || (*head)->next == NULL)
 		return (1);
 	/*Middle of the list*/
 	length = len(*head);
 	for (i = 0; i < length / 2 - 1; i++)
-		mid = mid->next;
-	if ((length % 2 == 0) && (mid->n != mid->next->n))
+		tmp = tmp->next;
+	if ((length % 2 == 0) && (tmp->n != tmp->next->n))
 		return (0);
-	mid = mid->next->next;
-	r = reverse_list(mid);
-	if (is_pal(*head, r))
+	tmp = tmp->next->next;
+	r = reverse_list(&tmp);
+	mid = r;
+	if (is_pal(tmp, r))
+	{
+		reverse_list(&mid);
 		return (1);
+	}
 	return (0);
 }
