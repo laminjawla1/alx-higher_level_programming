@@ -13,9 +13,21 @@ def roman_to_int(roman_string):
         "D": 500,
         "M": 1000,
     }
-    for c in roman_string:
+    for i in range(len(roman_string)):
         try:
-            integer += roman_ints[c]
+            num = roman_ints[roman_string[i]]
+            next_num = None
+            try:
+                next_num = roman_ints[roman_string[i + 1]]
+            except IndexError:
+                pass
+            if next_num:
+                if num >= next_num:
+                    integer += num
+                elif num < next_num:
+                    integer -= num
+            else:
+                integer += num
         except KeyError:
             return 0
     return integer
