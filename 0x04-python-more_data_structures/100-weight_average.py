@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 def get_numerator(l):
     n = 0
+    p = 1
     for t in l:
         for i in t:
-            n += i
+            p *= i
+        n += p
+        p = 1
     return n
 
 
