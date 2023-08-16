@@ -48,13 +48,13 @@ void print_python_list(PyObject *p)
 	PyObject *item;
 
 	printf("[*] Python list info\n");
-	printf("[*] Size of the python list %ld\n", pp->ob_base.ob_size);
+	printf("[*] Size of the python list = %ld\n", pp->ob_base.ob_size);
 	printf("[*] Allocated = %ld\n", pp->allocated);
 
 	for (i = 0; i < pp->ob_base.ob_size; i++)
 	{
 		item = pp->ob_item[i];
-		printf("Element %d: %s\n", i, item->ob_type->tp_name);
+		printf("Element %ld: %s\n", i, item->ob_type->tp_name);
 		if (PyBytes_Check(item))
 			print_python_bytes(item);
 	}
