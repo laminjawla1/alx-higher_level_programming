@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-from functools import reduce
-
-
 def get_numerator(l):
     n = 0
     for t in l:
-        n += reduce(lambda x, y: x * y, t)
+        for i in t:
+            n += i
     return n
 
 
