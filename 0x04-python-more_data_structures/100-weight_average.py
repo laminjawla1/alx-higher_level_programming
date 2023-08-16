@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-def get_numerator(l):
+def get_numerator(_list):
     n = 0
     p = 1
-    for t in l:
+    for t in _list:
         for i in t:
             p *= i
         n += p
@@ -10,9 +10,9 @@ def get_numerator(l):
     return n
 
 
-def get_denominator(l):
+def get_denominator(_list):
     n = 0
-    for t in l:
+    for t in _list:
         n += t[1]
     return n
 
