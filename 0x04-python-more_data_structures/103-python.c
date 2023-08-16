@@ -21,12 +21,12 @@ void print_python_bytes(PyObject *p)
 
 	if (!PyBytes_Check(p))
 	{
-		printf("    [ERROR] Invalid Bytes Object\n");
+		printf("[ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
-	printf("    size: %ld\n", list_size);
-	printf("    trying string: %s\n", trying_string);
+	printf("size: %ld\n", list_size);
+	printf("trying string: %s\n", trying_string);
 	threshold = (list_size >= 10) ? 10 : list_size + 1;
 
 	printf("first %ld bytes: ", threshold);
