@@ -8,8 +8,8 @@
 */
 void print_python_bytes(PyObject *p)
 {
-	char *string;
-	long int size, i, limit;
+	char *trying_string;
+	size_t list_size, threshold, i;
 
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
@@ -18,24 +18,20 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
-	size = ((PyVarObject *)(p))->ob_size;
-	string = ((PyBytesObject *)p)->ob_sval;
+	list_size = ((PyVarObject *)(p))->ob_size;
+	trying_string = ((PyBytesObject *)p)->ob_sval;
 
-	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", string);
+	printf("  size: %ld\n", list_size);
+	printf("  trying string: %s\n", trying_string);
 
-	if (size >= 10)
-		limit = 10;
-	else
-		limit = size + 1;
+	threshold = (list_size >= 10) ? 10 : list_size + 1;
+	printf("  first %ld bytes:", threshold);
 
-	printf("  first %ld bytes:", limit);
-
-	for (i = 0; i < limit; i++)
-		if (string[i] >= 0)
-			printf(" %02x", string[i]);
+	for (i = 0; i < threshold; i++)
+		if (trying_string[i] >= 0)
+			printf(" %02x", trying_string[i]);
 		else
-			printf(" %02x", 256 + string[i]);
+			printf(" %02x", 256 + trying_string[i]);
 
 	printf("\n");
 }
