@@ -28,11 +28,8 @@ void print_python_bytes(PyObject *p)
 	printf("  first %ld bytes:", threshold);
 
 	for (i = 0; i < threshold; i++)
-		if (trying_string[i] >= 0)
-			printf(" %02x", trying_string[i]);
-		else
+		(trying_string[i] >= 0) ? printf(" %02x", trying_string[i]) :
 			printf(" %02x", 256 + trying_string[i]);
-
 	printf("\n");
 }
 /**
