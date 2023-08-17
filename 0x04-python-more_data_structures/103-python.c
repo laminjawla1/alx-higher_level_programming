@@ -17,16 +17,12 @@ void print_python_bytes(PyObject *p)
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-
 	list_size = ((PyVarObject *)(p))->ob_size;
 	trying_string = ((PyBytesObject *)p)->ob_sval;
-
+	threshold = (list_size >= 10) ? 10 : list_size + 1;
 	printf("  size: %ld\n", list_size);
 	printf("  trying string: %s\n", trying_string);
-
-	threshold = (list_size >= 10) ? 10 : list_size + 1;
 	printf("  first %ld bytes:", threshold);
-
 	for (i = 0; i < threshold; i++)
 		(trying_string[i] >= 0) ? printf(" %02x", trying_string[i]) :
 			printf(" %02x", 256 + trying_string[i]);
