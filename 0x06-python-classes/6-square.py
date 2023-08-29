@@ -21,9 +21,9 @@ class Square:
 
         if (
             not isinstance(position, tuple)
-            and len(position) != 2
-            and not any(type(item) != int for item in position)
-            and not any(item < 0 for item in position)
+            or len(position) != 2
+            or not any(type(item) != int for item in position)
+            or not any(item < 0 for item in position)
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
 
@@ -68,9 +68,9 @@ class Square:
         """
         if (
             not isinstance(value, tuple)
-            and len(value) != 2
-            and not any(type(item) != int for item in value)
-            and not any(item < 0 for item in value)
+            or len(value) != 2
+            or not any(type(item) != int for item in value)
+            or not any(item < 0 for item in value)
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
 
