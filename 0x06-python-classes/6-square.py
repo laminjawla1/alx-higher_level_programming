@@ -15,8 +15,8 @@ class Square:
         __init__ - The initializer
         """
 
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """
