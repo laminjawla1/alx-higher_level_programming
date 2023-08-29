@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-	Structuring an empty class for the square instances
+Structuring an empty class for the square instances
 """
 
 
