@@ -77,4 +77,4 @@ class Square:
             print()
         n_space = self.__position[0]
         for i in range(self.__size):
-            print("_" * n_space + "#" * self.__size)
+            print(" " * n_space + "#" * self.__size)
