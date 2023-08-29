@@ -14,18 +14,6 @@ class Square:
         """
         __init__ - The initializer
         """
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-
-        if (
-            not isinstance(position, tuple)
-            or len(position) != 2
-            or not any(type(item) != int for item in position)
-            or not any(item < 0 for item in position)
-        ):
-            raise TypeError("position must be a tuple of 2 positive integers")
 
         self.__size = size
         self.__position = position
@@ -73,6 +61,7 @@ class Square:
             or not any(item < 0 for item in value)
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     def my_print(self):
         """
