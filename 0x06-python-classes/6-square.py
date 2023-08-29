@@ -68,11 +68,11 @@ class Square:
         my_print - Prints a square of size size
         """
         if self.__size == 0:
-            print()
+            print("")
             return
 
-        for i in range(self.__position[1]):
-            print()
-        n_space = self.__position[0]
-        for i in range(self.__size):
-            print(" " * n_space + "#" * self.__size)
+        [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            print("")
