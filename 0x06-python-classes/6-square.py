@@ -60,8 +60,8 @@ class Square:
         """
         if (
             not isinstance(value, tuple)
-            or len(value) != 2
-            or not any(type(item) != int for item in value)
+            and len(value) != 2
+            and not any(type(item) != int for item in value)
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
 
