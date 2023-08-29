@@ -19,8 +19,8 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         if (
-            not isintance(value, tuple)
-            and len(value) != 2
+            not isinstance(position, tuple)
+            and len(position) != 2
             and not any(type(item) != int for item in value)
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -65,7 +65,7 @@ class Square:
         position - Sets object's position
         """
         if (
-            not isintance(value, tuple)
+            not isinstance(value, tuple)
             and len(value) != 2
             and not any(type(item) != int for item in value)
         ):
@@ -81,4 +81,4 @@ class Square:
         p = self.__position[1]
         n_space = self.__position[0] if p <= 1 else 0
         for i in range(self.__size):
-            print(" " * n_space + "#" * self.__size)
+            print("_" * n_space + "#" * self.__size)
