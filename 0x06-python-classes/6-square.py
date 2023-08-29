@@ -73,7 +73,8 @@ class Square:
             print()
             return
 
-        p = self.__position[1]
-        n_space = self.__position[0] if p <= 1 else 0
+        for i in range(self.__position[1]):
+            print()
+        n_space = self.__position[0]
         for i in range(self.__size):
             print("_" * n_space + "#" * self.__size)
