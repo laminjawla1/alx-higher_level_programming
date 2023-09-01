@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-Add integer module, adds two integers
+Add integer module, implement the add_integer function
+which adds two integers and return the result
+It also contains some doctest specifications
 """
 
 
