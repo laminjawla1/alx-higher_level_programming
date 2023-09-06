@@ -43,7 +43,11 @@ def get_solution(board):
 
 def non_attacking_queens(board, row, col):
     """
-    non_attacking_queens - is designed to mark the spots on a chessboard where non-attacking queens can no longer be placed, given the position of a queen that has just been placed on the board. This function essentially marks all the rows, columns, and diagonals that are under threat by the newly placed queen.
+    non_attacking_queens - is designed to mark the spots on a chessboard
+        where non-attacking queens can no longer be placed,
+        given the position of a queen that has just been placed on the board.
+        This function essentially marks all the rows, columns,
+        and diagonals that are under threat by the newly placed queen.
     """
     for c in range(col + 1, len(board)):
         board[row][c] = "x"
@@ -93,7 +97,9 @@ def generate_solutions(board, row, queens, solutions):
             tmp_board = copy_board(board)
             tmp_board[row][i] = "Q"
             non_attacking_queens(tmp_board, row, i)
-            solutions = generate_solutions(tmp_board, row + 1, queens + 1, solutions)
+            solutions = generate_solutions(
+                tmp_board, row + 1, queens + 1, solutions
+            )
 
     return solutions
 
