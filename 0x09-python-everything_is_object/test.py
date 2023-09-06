@@ -1,7 +1,13 @@
-def assign_value(n, v):
-    n = v
+#!/usr/bin/python3
+copy_list = __import__('19-copy_list').copy_list
 
-l1 = [1, 2, 3]
-l2 = [4, 5, 6]
-assign_value(l1, l2)
-print(l1)
+my_list = [1, 2, 3]
+print(my_list)
+
+new_list = copy_list(my_list)
+
+print(my_list)
+print(new_list)
+
+print(new_list == my_list)
+print(new_list is my_list)
