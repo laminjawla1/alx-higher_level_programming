@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 """
-The rectangle module
+The rectangle module implements
+the Rectangle class which serves
+as a blueprint for Rectangle instances
 """
+
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):
@@ -16,6 +19,7 @@ class Rectangle(BaseGeometry):
         Initializer
         """
         self.integer_validator("width", width)
-        self.__width = width
         self.integer_validator("height", height)
+
+        self.__width = width
         self.__height = height
