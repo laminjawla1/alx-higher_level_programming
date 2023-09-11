@@ -24,31 +24,37 @@ Traceback (most recent call last):
     ...
 ValueError: sage must be greater than 0
 
+>>> bg = BaseGeometry()
 >>> bg.integer_validator("age", None)
 Traceback (most recent call last):
             ...
 TypeError: age must be an integer
 
+>>> bg = BaseGeometry()
 >>> bg.integer_validator("age", {6, 1})
 Traceback (most recent call last):
             ...
 TypeError: age must be an integer
 
+>>> bg = BaseGeometry()
 >>> bg.integer_validator("boy", [120])
 Traceback (most recent call last):
             ...
 TypeError: boy must be an integer
 
+>>> bg = BaseGeometry()
 >>> bg.integer_validator("age", ('l',))
 Traceback (most recent call last):
             ...
 TypeError: age must be an integer
 
+>>> bg = BaseGeometry()
 >>> bg.integer_validator("name")
 Traceback (most recent call last):
             ...
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
+>>> bg = BaseGeometry()
 >>> bg.integer_validator()
 Traceback (most recent call last):
             ...
