@@ -11,7 +11,6 @@ class MyList(list):
 
     def __init__(self):
         """Using the init method from the list class"""
-        list.__init__(self)
 
     def print_sorted(self):
         """Prints the list in sorted"""
