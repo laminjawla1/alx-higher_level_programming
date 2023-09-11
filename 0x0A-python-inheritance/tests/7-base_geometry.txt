@@ -4,8 +4,10 @@
 >>> bg = BaseGeometry()
 
 >>> bg.integer_validator("my_int", 12)
-
->>> bg.integer_validator("width", 89)
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
 
 >>> bg.integer_validator("height", "width")
 Traceback (most recent call last):
@@ -16,5 +18,22 @@ TypeError: height must be an integer
 Traceback (most recent call last):
     ...
 ValueError: sage must be greater than 0
+
+>>> bg.integer_validator("sage", 0)
+Traceback (most recent call last):
+    ...
+ValueError: sage must be greater than 0
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+            ...
+TypeError: age must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", {6, 1})
+Traceback (most recent call last):
+            ...
+TypeError: age must be an integer
 
 """
