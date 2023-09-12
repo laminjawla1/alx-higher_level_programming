@@ -12,7 +12,7 @@ def main():
     filename = "add_item.json"
     try:
         my_list = load_from_json_file(filename)
-    except:
+    except FileNotFoundError:
         my_list = []
     my_list.extend(argv[1:])
     save_to_json_file(my_list, filename)
