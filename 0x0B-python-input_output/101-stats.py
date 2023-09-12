@@ -10,7 +10,9 @@ def main():
     """Programs entry point"""
     file_size = cnt = 0
     status_codes = {}
-    valid_status_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
+    valid_status_codes = [
+        "200", "301", "400", "401", "403", "404", "405", "500"
+    ]
 
     try:
         for line in sys.stdin:
