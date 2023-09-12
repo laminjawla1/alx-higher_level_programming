@@ -7,4 +7,4 @@ import json
 def load_from_json_file(filename):
     """Loads a json obj from a file"""
     with open(filename, "r") as f:
-        return json.dumps(json.load(f))
+        return json.load(f)
