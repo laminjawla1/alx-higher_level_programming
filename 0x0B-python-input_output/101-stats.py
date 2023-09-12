@@ -42,9 +42,9 @@ def main():
 
 def print_metrics(file_size, status_codes):
     """Prints the metrics"""
-    print(f"File size: {file_size}")
-    for code in sorted(status_codes.keys()):
-        print(f"{code}: {status_codes[code]}")
+    print("File size: {}".format(file_size))
+    for code in sorted(status_codes):
+        print("{}: {}".format(code, status_codes[code]))
 
 
 if __name__ == "__main__":
