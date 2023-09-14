@@ -84,8 +84,11 @@ class Rectangle(Base):
 
     def display(self):
         """Prints the current instance with the value '#'"""
-        for i in range(self.__height):
-            print("#" * self.__width)
+        for i in range(0, self.__y):
+            print()
+        n_space = self.__x
+        for i in range(0, self.__height):
+            print(" " * n_space + "#" * self.__width)
 
     def __str__(self):
         """The string representation of the current object"""
