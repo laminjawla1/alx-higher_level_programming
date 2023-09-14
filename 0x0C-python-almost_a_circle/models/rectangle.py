@@ -86,3 +86,8 @@ class Rectangle(Base):
         """Prints the current instance with the value '#'"""
         for i in range(self.__height):
             print("#" * self.__width)
+
+    def __str__(self):
+        """The string representation of the current object"""
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
+{self.__width}/{self.__height}"
