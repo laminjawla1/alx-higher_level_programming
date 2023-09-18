@@ -112,7 +112,7 @@ class Rectangle(Base):
             for attr_name in ['width', 'height', 'x', 'y']:
                 if attr_name in kwargs:
                     setattr(self, attr_name, kwargs[attr_name])
-    
+
     def to_dictionary(self):
         """To dictionary"""
         return {
