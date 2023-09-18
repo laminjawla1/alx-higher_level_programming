@@ -137,4 +137,4 @@ class Base:
                 t.left(90)
             t.hideturtle()
 
-        turtle.exitonclick()
+        turtle.getscreen()._root.mainloop()
