@@ -100,7 +100,7 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except FileNotFoundError:
             return []
-    
+
     def draw(list_rectangles, list_squares):
         """
         Draws rectangles and squares from list of rectangles and squares
