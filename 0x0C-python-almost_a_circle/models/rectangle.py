@@ -94,3 +94,31 @@ class Rectangle(Base):
         """The string representation of the current object"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
 {self.__width}/{self.__height}"
+
+    def update(self, *args, **kwargs):
+        """Update the current instance of the Rectangle class"""
+        if args and len(args):
+            try:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+            except IndexError:
+                pass
+        elif kwargs and len(kwargs):
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            for attr_name in ['width', 'height', 'x', 'y']:
+                if attr_name in kwargs:
+                    setattr(self, attr_name, kwargs[attr_name])
+    
+    def to_dictionary(self):
+        """To dictionary"""
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
