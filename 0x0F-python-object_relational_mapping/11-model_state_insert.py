@@ -29,6 +29,7 @@ def main():
     session.add(state)
     obj = session.query(State).filter_by(name='Louisiana').first()
     print(obj.id)
+    session.commit()
 
 
 if __name__ == "__main__":
