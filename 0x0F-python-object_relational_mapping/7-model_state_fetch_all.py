@@ -16,7 +16,8 @@ def main():
     database = sys.argv[3]
 
     engine = create_engine(
-        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(user, password, database)
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".
+        format(user, password, database)
     )
 
     Base.metadata.create_all(engine)
