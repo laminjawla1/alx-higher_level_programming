@@ -25,8 +25,11 @@ def main():
 
     session = Session()
 
-    item = session.get_one(State, 1)
-    print(item.id, item.name, sep=": ")
+    item = session.query(State).first()
+    if item:
+        print(item.id, item.name, sep=": ")
+    else:
+        print('Nothing')
 
 
 if __name__ == "__main__":
