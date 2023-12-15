@@ -19,7 +19,9 @@ def main():
 
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY states.id", (query,))
+    cur.execute("""
+                SELECT * FROM states WHERE name LIKE %s
+                ORDER BY states.id ASC""", (query,))
 
     rows = cur.fetchall()
 
