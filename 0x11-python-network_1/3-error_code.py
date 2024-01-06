@@ -13,7 +13,7 @@ def main():
         with urllib.request.urlopen(sys.argv[1]) as response:
             print(response.read().decode("utf-8"))
     except urllib.error.URLError as e:
-        print("Error code: {}".format(e.code))
+        print("Error code: {}".format(e.code), end="")
 
 
 if __name__ == "__main__":
