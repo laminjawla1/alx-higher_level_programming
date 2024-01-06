@@ -6,6 +6,7 @@ the GitHub API to display your id
 """
 import sys
 import requests
+from requests.auth import HTTPBasicAuth
 
 
 def main():
@@ -13,7 +14,7 @@ def main():
     password = sys.argv[2]
 
     url = "https://api.github.com/users/{}".format(username)
-    response = requests.get(url, auth=(username, password))
+    response = requests.get(url, auth=HTTPBasicAuth(username, password))
     result = response.json()
     print(result.get("id"))
 
