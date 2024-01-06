@@ -9,10 +9,8 @@ import urllib.request
 
 
 def main():
-    url = sys.argv[1]
-    req = urllib.request.Request(url)
-    with urllib.request.urlopen(req) as response:
-        print(dict(response.headers.get("X-Request-Id")))
+    with urllib.request.urlopen(sys.argv[1]) as response:
+        print(dict(response.headers).get("X-Request-Id"))
 
 
 if __name__ == "__main__":
