@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
 Implemments a python script to get the status of a route
-
-Write a Python script that fetches https://alx-intranet.hbtn.io/status
 """
 import urllib.request
 
