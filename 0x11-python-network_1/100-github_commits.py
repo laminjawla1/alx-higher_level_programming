@@ -16,12 +16,13 @@ def main():
     response = requests.get(url)
     result = response.json()
     for commit in result[:10]:
-        print(
-            "{}: {}".format(
-                commit.get("sha"),
-                commit.get("commit").get("author").get("name")
+        if type(commit) is dict:
+            print(
+                "{}: {}".format(
+                    commit.get("sha"),
+                    commit.get("commit").get("author").get("name")
+                )
             )
-        )
 
 
 if __name__ == "__main__":
