@@ -7,9 +7,11 @@ and displays the body of the response (decoded in utf-8)
 import sys
 import requests
 
+
 def main():
     response = requests.post(sys.argv[1], data={"email": sys.argv[2]})
-    print(response.content)
+    print(response.text)
+
 
 if __name__ == "__main__":
     main()
