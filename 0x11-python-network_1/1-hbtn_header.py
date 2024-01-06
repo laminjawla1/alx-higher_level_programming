@@ -10,8 +10,8 @@ import urllib.request
 
 def main():
     url = sys.argv[1]
-
-    with urllib.request.urlopen(url) as response:
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
         print(dict(response.headers.get("X-Request-Id")))
 
 
