@@ -9,24 +9,18 @@ import requests
 
 
 def main():
-    letter = get_letter(sys.argv)
+    """Entry point"""
+    letter = sys.argv[1] if len(sys.argv) > 1 else ""
     url = "http://0.0.0.0:5000/search_user"
     response = requests.post(url, data={"q": letter})
     try:
         result = response.json()
-        if not len(result):
-            print("No result")
-        else:
+        if result:
             print("[{}] {}".format(result.get("id"), result.get("name")))
-    except exception as e:
+        else:
+            print("No result")
+    except ValueError:
         print("Not a valid JSON")
-
-
-def get_letter(argv):
-    try:
-        return argv[1]
-    except IndexError:
-        return ""
 
 
 if __name__ == "__main__":
