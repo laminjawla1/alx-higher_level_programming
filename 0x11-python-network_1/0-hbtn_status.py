@@ -6,7 +6,8 @@ import urllib.request
 
 
 def main():
-    with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as response:
+    url = "https://alx-intranet.hbtn.io/status"
+    with urllib.request.urlopen(url) as response:
         body = response.read()
 
         print("Body response:")
