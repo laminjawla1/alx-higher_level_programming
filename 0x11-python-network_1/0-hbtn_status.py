@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+import urllib.request
 """
 Implemments a python script to get the status of a route
 """
-import urllib.request
 
 
 def main():
