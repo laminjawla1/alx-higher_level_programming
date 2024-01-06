@@ -17,12 +17,8 @@ import urllib.request
 #         print(line.strip())
 
 # Data
-url = 'http://www.someserver.com/cgi-bin/register.cgi'
-values = {
-    'name' : "Lamin Jawla",
-    'ocation' : 'The Gambia',
-    'language' : 'Python'
-}
+url = "http://www.someserver.com/cgi-bin/register.cgi"
+values = {"name": "Lamin Jawla", "ocation": "The Gambia", "language": "Python"}
 
 # data = urllib.parse.urlencode(values)
 # data = data.encode('ascii')
@@ -34,7 +30,9 @@ values = {
 import requests
 
 
-response = requests.get('https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Eopsaltria_australis_-_Mogo_Campground.jpg/640px-Eopsaltria_australis_-_Mogo_Campground.jpg')
+response = requests.get(
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Eopsaltria_australis_-_Mogo_Campground.jpg/640px-Eopsaltria_australis_-_Mogo_Campground.jpg"
+)
 with open("bird.jpg", "wb") as bin_writer:
     bin_writer.write(response.content)
 print(response.content)
