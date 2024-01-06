@@ -10,15 +10,15 @@ import requests
 
 def main():
     letter = get_letter(sys.argv)
-    url = 'http://0.0.0.0:5000/search_user'
-    response = requests.post(url, data={'q': letter})
+    url = "http://0.0.0.0:5000/search_user"
+    response = requests.post(url, data={"q": letter})
     try:
         result = response.json()
         if not len(result):
             print("No result")
         else:
             print("[{}] {}".format(result.get("id"), result.get("name")))
-    except JSONDecodeError:
+    except exception as e:
         print("Not a valid JSON")
 
 
