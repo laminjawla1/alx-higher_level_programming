@@ -9,11 +9,11 @@ const url = process.argv[2];
 request.get(url, (error, response, body) => {
   if (error) {
     console.log(error);
-  } else if (response.statusCode === 200) {
+  } else {
     const todos = JSON.parse(body);
     const result = {};
     todos.forEach(todo => {
-      if (todo.completed === true) {
+      if (todo.completed) {
 	if (result[todo.userId] === undefined)
 	  result[todo.userId] = 1;
 	else
@@ -21,7 +21,5 @@ request.get(url, (error, response, body) => {
       }
     });
     console.log(result);
-  } else {
-    console.log(`code: ${response.statusCode}`);
   }
 });
