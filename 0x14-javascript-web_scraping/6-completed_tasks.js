@@ -11,14 +11,13 @@ request.get(url, (error, response, body) => {
     console.log(error);
   } else {
     const todos = JSON.parse(body);
-    const result = {}
+    const result = {};
     todos.forEach(todo => {
-      if (todo.completed) {
-        let initialResult = result[todo.userId];
-	if (initialResult === undefined)
+      if (todo.completed === true) {
+	if (result[todo.userId] === undefined)
 	  result[todo.userId] = 1;
 	else
-	  result[todo.userId] = result[todo.userId] + 1;
+	  result[todo.userId]++;
       }
     });
     console.log(result);
